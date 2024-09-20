@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "react";
 import { useLocation, Navigate } from "react-router-dom";
-import html2canvas from "html2canvas"; // Import html2canvas
+import html2canvas from "html2canvas";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const Ticket = () => {
   const location = useLocation();
-  const ticketRef = useRef(null); // Referensi untuk elemen tiket
+  const ticketRef = useRef(null);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -14,7 +14,7 @@ const Ticket = () => {
       "https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js";
     script.onload = () => {
       const qrcodeElement = document.getElementById("qrcode");
-      qrcodeElement.innerHTML = ""; // Kosongkan konten sebelumnya
+      qrcodeElement.innerHTML = "";
       if (location.state) {
         new window.QRCode(qrcodeElement, {
           text: location.state.ticketNumber,
@@ -36,12 +36,11 @@ const Ticket = () => {
 
   const { email, namaLengkap, nomorWA, event, ticketNumber } = location.state;
 
-  // Fungsi untuk mendownload tiket keseluruhan
   const downloadTicket = () => {
     html2canvas(ticketRef.current).then((canvas) => {
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
-      link.download = `Tiket-${ticketNumber}.png`; // Nama file untuk diunduh
+      link.download = `Tiket-${ticketNumber}.png`;
       link.click();
     });
   };
@@ -58,16 +57,13 @@ const Ticket = () => {
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50" />{" "}
-        {/* Overlay Gelap */}
         <div className="relative container mx-auto py-16 px-4" ref={ticketRef}>
           <h2 className="text-3xl font-semibold text-center mb-8 text-white">
             Tiket Event
           </h2>
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
-            {/* Tempat untuk QR Code di tengah */}
             <div id="qrcode" className="flex justify-center mb-6"></div>
 
-            {/* Tabel untuk menampilkan informasi tiket */}
             <table className="min-w-full text-left border-collapse">
               <tr>
                 <th className="p-2 text-lg font-semibold bg-gray-200">
@@ -96,7 +92,6 @@ const Ticket = () => {
                 <td className="border p-2">{nomorWA}</td>
               </tr>
             </table>
-            {/* Tombol Download Tiket */}
             <div className="text-center mt-6">
               <button
                 onClick={downloadTicket}

@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import Home from "./pages/Home.jsx";
 import Register from "./pages/Register.jsx";
 import History from "./pages/History.jsx";
-import Ticket from "./pages/Ticket.jsx"; // Impor halaman tiket
+import Ticket from "./pages/Ticket.jsx";
 import store from "./redux/store.js";
 
 const router = createBrowserRouter([
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     element: <History />,
   },
   {
-    path: "/ticket", // Tambahkan rute untuk halaman tiket
+    path: "/ticket",
     element: <Ticket />,
   },
 ]);

@@ -13,7 +13,6 @@ const Register = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const navigate = useNavigate();
 
-  // Basis nomor untuk setiap event
   const eventBaseNumbers = {
     "#64 : ITS Music Concert": 10000,
     "Event 2": 20000,
@@ -37,13 +36,10 @@ const Register = () => {
     const savedCount = localStorage.getItem(`ticketCount-${formData.event}`);
     const newCount = savedCount ? parseInt(savedCount, 10) + 1 : 1; // Tambah 1 jika ada, jika tidak mulai dari 1
 
-    // Simpan nomor tiket baru ke localStorage
     localStorage.setItem(`ticketCount-${formData.event}`, newCount);
 
-    // Buat nomor tiket dengan format TKT-10001, TKT-20001, dst.
     const ticketNumber = `TKT-${baseNumber + newCount}`;
 
-    // Pindah ke halaman tiket dengan data pendaftaran dan nomor tiket
     navigate("/ticket", { state: { ...formData, ticketNumber } });
   };
 
@@ -63,7 +59,6 @@ const Register = () => {
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50" />{" "}
-        {/* Overlay Gelap */}
         <div className="relative container mx-auto py-16 px-4">
           <h2 className="text-3xl font-semibold text-center mb-8 text-white">
             Daftar Event

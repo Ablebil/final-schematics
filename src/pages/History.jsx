@@ -3,7 +3,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const History = () => {
-  // Mengambil data history dari Redux store
   const eventHistory = useSelector((state) => state.events.history);
 
   return (
@@ -18,7 +17,6 @@ const History = () => {
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50" />{" "}
-        {/* Overlay Gelap */}
         <div className="relative container mx-auto py-16 px-4">
           <h2 className="text-3xl font-semibold text-center mb-8 text-white">
             History Event

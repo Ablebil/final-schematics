@@ -9,7 +9,7 @@ const Navbar = () => {
             <img
               src="https://www.its.ac.id/diesnatalis/wp-content/themes/ITS/assets/img/logo.png"
               alt="Event Logo"
-              className="h-14" // Sesuaikan tinggi gambar sesuai kebutuhan
+              className="h-14"
             />
           </Link>
         </div>

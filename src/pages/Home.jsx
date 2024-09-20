@@ -11,7 +11,6 @@ const Home = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
 
-      {/* Hero Section */}
       <section className="relative h-[92vh] flex items-center mt-20">
         <video
           autoPlay
@@ -38,7 +37,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* History Section */}
       <section className="py-16 bg-gray-100 flex-grow">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-semibold text-center mb-8">
